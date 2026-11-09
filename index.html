@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Creative Video Production & Editing Partner | Sandmotion Video Labs</title>
 <meta name="description" content="From YouTube videos and social media content to brand films and motion graphics, get a dedicated creative production partner for your ideas.">
-<link rel="canonical" href="https://www.sandmotionvideolabs.com/">
+<link rel="canonical" href="https://www.sandmotionvideolabs.in/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sandmotion Video Labs – From Idea to Creative Video">
 <meta property="og:description" content="Your creative production partner for YouTube creators, personal brands and businesses.">
-<meta property="og:image" content="https://www.sandmotionvideolabs.com/og-image.jpg">
-<meta property="og:url" content="https://www.sandmotionvideolabs.com/">
+<meta property="og:image" content="https://www.sandmotionvideolabs.in/og-image.jpg">
+<meta property="og:url" content="https://www.sandmotionvideolabs.in/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0b0a08">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0a08'/%3E%3Cpath d='M14 40q9-18 18 0t18 0' stroke='%23d9a441' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sandmotion Video Labs","description":"Creative video production and editing partner for creators, personal brands and businesses worldwide.","url":"https://www.sandmotionvideolabs.com/","areaServed":"Worldwide"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sandmotion Video Labs","description":"Creative video production and editing partner for creators, personal brands and businesses worldwide.","url":"https://www.sandmotionvideolabs.in/","areaServed":"Worldwide"}</script>
 <!-- GA4: replace G-XXXXXXXXXX with your Measurement ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
@@ -124,6 +124,13 @@ footer ul{list-style:none;padding:0;display:grid;gap:8px}
 footer a{color:var(--mute);text-decoration:none}
 footer a:hover{color:var(--gold2)}
 .copy{margin-top:40px;color:var(--mute);font-size:.82rem}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.38;z-index:0}
+.frame .scr video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.frame .tag{z-index:2;pointer-events:none}
+.wa{position:fixed;right:22px;bottom:22px;z-index:70;display:flex;align-items:center;gap:10px;background:var(--gold);color:#16110a;text-decoration:none;font-weight:600;font-size:.9rem;padding:13px 20px 13px 16px;border-radius:99px;box-shadow:0 8px 24px rgba(0,0,0,.5);transition:transform .25s,background .25s}
+.wa:hover{background:var(--gold2);transform:translateY(-3px)}
+.wa svg{width:22px;height:22px;fill:currentColor}
+@media(max-width:900px){.wa{display:none}}
 /* mobile cta */
 .mcta{display:none}
 @media(max-width:900px){
@@ -164,6 +171,7 @@ footer a:hover{color:var(--gold2)}
 
 <main id="top">
 <section class="hero" aria-labelledby="h1">
+ <video id="hv" autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg" aria-hidden="true"><source src="hero.mp4" type="video/mp4"></video>
  <canvas id="sand" aria-hidden="true"></canvas>
  <div class="wrap">
   <div class="tc" aria-hidden="true"><i></i><span id="tc">00:00:00:00</span></div>
@@ -250,10 +258,10 @@ footer a:hover{color:var(--gold2)}
   <h2 id="h-work">See What Your Ideas Could Become.</h2>
   <p>Concept demonstrations that show our approach. Replace each frame with your own original sample video.</p>
   <div class="grid4">
-   <div class="frame"><div class="scr"><span class="tag">Creative Concept / Spec Work</span></div><div class="t"><h3>Personal brand talking-head edit</h3><p>Clean cuts, captions and pacing for a creator-led video.</p></div></div>
-   <div class="frame"><div class="scr"><span class="tag">Creative Concept / Spec Work</span></div><div class="t"><h3>Cinematic product advertisement</h3><p>Lighting, rhythm and sound that make a product feel premium.</p></div></div>
-   <div class="frame"><div class="scr"><span class="tag">Creative Concept / Spec Work</span></div><div class="t"><h3>YouTube video with short-form repurposing</h3><p>One long video, cut into Shorts and Reels.</p></div></div>
-   <div class="frame"><div class="scr"><span class="tag">Creative Concept / Spec Work</span></div><div class="t"><h3>Animated promotional video</h3><p>Motion graphics that explain an offer in seconds.</p></div></div>
+   <div class="frame"><div class="scr" data-video="concept-1"><span class="tag">Creative Concept / Spec Work</span></div><div class="t"><h3>Personal brand talking-head edit</h3><p>Clean cuts, captions and pacing for a creator-led video.</p></div></div>
+   <div class="frame"><div class="scr" data-video="concept-2"><span class="tag">Creative Concept / Spec Work</span></div><div class="t"><h3>Cinematic product advertisement</h3><p>Lighting, rhythm and sound that make a product feel premium.</p></div></div>
+   <div class="frame"><div class="scr" data-video="concept-3"><span class="tag">Creative Concept / Spec Work</span></div><div class="t"><h3>YouTube video with short-form repurposing</h3><p>One long video, cut into Shorts and Reels.</p></div></div>
+   <div class="frame"><div class="scr" data-video="concept-4"><span class="tag">Creative Concept / Spec Work</span></div><div class="t"><h3>Animated promotional video</h3><p>Motion graphics that explain an offer in seconds.</p></div></div>
   </div>
   <p class="note">These are original concepts made for demonstration. They are not client projects.</p>
  </div>
@@ -266,10 +274,10 @@ footer a:hover{color:var(--gold2)}
    <p>Tell us what you want to create. We reply by email, usually within one working day.</p>
    <div class="alt2">
     <a class="btn ghost" id="wa-main" href="https://wa.me/918208072906?text=Hi%20Sandmotion%20Video%20Labs%2C%20I%27d%20like%20to%20discuss%20a%20video%20project." target="_blank" rel="noopener" data-evt="whatsapp_click">Chat on WhatsApp</a>
-    <a href="mailto:hello@sandmotionvideolabs.com" style="color:var(--gold2)">hello@sandmotionvideolabs.com</a>
+    <a href="mailto:sandmotionvideolabs@gmail.com" style="color:var(--gold2)">sandmotionvideolabs@gmail.com</a>
    </div>
   </div>
-  <form id="lead" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+  <form id="lead" action="PASTE_APPS_SCRIPT_URL" method="POST" novalidate>
    <div class="row">
     <label>Full name<input name="name" autocomplete="name" required><span class="err"></span></label>
     <label>Business email<input name="email" type="email" autocomplete="email" required><span class="err"></span></label>
@@ -319,7 +327,7 @@ footer a:hover{color:var(--gold2)}
   <div>
    <h4>Contact</h4>
    <ul>
-    <li><a href="mailto:hello@sandmotionvideolabs.com">hello@sandmotionvideolabs.com</a></li>
+    <li><a href="mailto:sandmotionvideolabs@gmail.com">sandmotionvideolabs@gmail.com</a></li>
     <li><a href="https://wa.me/918208072906" target="_blank" rel="noopener" data-evt="whatsapp_click">WhatsApp</a></li>
     <li><a href="#" rel="noopener">YouTube</a> · <a href="#" rel="noopener">Instagram</a> · <a href="#" rel="noopener">LinkedIn</a></li>
     <li><a href="#privacy">Privacy policy</a></li>
@@ -331,6 +339,7 @@ footer a:hover{color:var(--gold2)}
  </div>
 </footer>
 
+<a class="wa" href="https://wa.me/918208072906?text=Hi%20Sandmotion%20Video%20Labs%2C%20I%27d%20like%20to%20discuss%20a%20video%20project." target="_blank" rel="noopener" data-evt="whatsapp_click" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>WhatsApp</a>
 <div class="mcta"><a class="btn" href="#contact" data-evt="mobile_start_project">Start Your Project</a><a class="btn ghost" href="https://wa.me/918208072906" target="_blank" rel="noopener" data-evt="whatsapp_click">WhatsApp</a></div>
 
 <script>
@@ -358,6 +367,23 @@ document.getElementById('yr').textContent=new Date().getFullYear();
  })();
 })();
 
+
+// videos: hero + concept clips load only if the files exist
+(function(){
+ var hv=document.getElementById('hv');
+ if(hv){hv.querySelector('source').addEventListener('error',function(){hv.remove()});
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){hv.removeAttribute('autoplay');hv.pause()}}
+ document.querySelectorAll('.scr[data-video]').forEach(function(box){
+  var n=box.dataset.video,v=document.createElement('video');
+  v.controls=true;v.preload='metadata';v.playsInline=true;v.poster=n+'.jpg';
+  v.setAttribute('aria-label','Creative concept video');
+  v.innerHTML='<source src="'+n+'.mp4" type="video/mp4">';
+  v.querySelector('source').addEventListener('error',function(){v.remove()});
+  v.addEventListener('play',function(){track('concept_video_play',{video:n})});
+  box.appendChild(v);
+ });
+})();
+
 // analytics events
 function track(name,params){if(window.gtag)gtag('event',name,params||{})}
 document.addEventListener('click',function(e){var a=e.target.closest('[data-evt]');if(a)track(a.dataset.evt)});
@@ -378,10 +404,11 @@ document.addEventListener('click',function(e){var a=e.target.closest('[data-evt]
   e.preventDefault();st.className='';st.textContent='';
   if(!valid()){var b=f.querySelector('[aria-invalid="true"]');if(b)b.focus();return}
   if(f.elements.website.value){return} // honeypot: bots only
-  if(f.action.indexOf('YOUR_FORM_ID')>-1){st.className='bad';st.textContent='The form is not connected yet. Please use WhatsApp or email for now.';return}
+  if(f.action.indexOf('PASTE_APPS_SCRIPT_URL')>-1){st.className='bad';st.textContent='The form is not connected yet. Please use WhatsApp or email for now.';return}
   btn.disabled=true;btn.textContent='Sending...';
-  fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
-   .then(function(r){if(!r.ok)throw new Error(r.status);
+  fetch(f.action,{method:'POST',body:new FormData(f)})
+   .then(function(r){return r.json()})
+   .then(function(r){if(!r||r.result!=='success')throw new Error('fail');
     st.className='ok';st.textContent='Thank you. Your enquiry has been received and we will reply by email soon.';
     track('generate_lead',{form:'project_enquiry',service:f.elements.service.value});f.reset()})
    .catch(function(){st.className='bad';st.textContent='Your enquiry was not sent. Please try again, or message us on WhatsApp or email.';track('form_error')})
