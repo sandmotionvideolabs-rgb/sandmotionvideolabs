@@ -147,6 +147,11 @@ footer a:hover{color:var(--gold2)}
 }
 @media(max-width:560px){.grid4,.row{grid-template-columns:1fr}.logo b{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:900px){
+ .grid4{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding-bottom:14px;margin-right:-24px;padding-right:24px;-webkit-overflow-scrolling:touch}
+ .frame{flex:0 0 72%;scroll-snap-align:start}
+ .frame .scr{aspect-ratio:9/16}
+}
 </style>
 </head>
 <body>
@@ -162,6 +167,7 @@ footer a:hover{color:var(--gold2)}
     <li><a href="#services">Services</a></li>
     <li><a href="#who">Who We Help</a></li>
     <li><a href="#process">Process</a></li>
+    <li><a href="blog/">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
    </ul>
    <a class="btn" href="#contact" data-evt="nav_lets_talk">Let's Talk</a>
@@ -330,6 +336,7 @@ footer a:hover{color:var(--gold2)}
     <li><a href="mailto:sandmotionvideolabs@gmail.com">sandmotionvideolabs@gmail.com</a></li>
     <li><a href="https://wa.me/918208072906" target="_blank" rel="noopener" data-evt="whatsapp_click">WhatsApp</a></li>
     <li><a href="#" rel="noopener">YouTube</a> · <a href="#" rel="noopener">Instagram</a> · <a href="#" rel="noopener">LinkedIn</a></li>
+    <li><a href="blog/">Blog</a></li>
     <li><a href="#privacy">Privacy policy</a></li>
    </ul>
   </div>
@@ -370,16 +377,17 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 
 // videos: hero + concept clips load only if the files exist
 (function(){
- var hv=document.getElementById('hv');
+ var hv=document.getElementById('hv'),mob=matchMedia('(max-width:900px)').matches;
+ if(hv&&mob){hv.poster='hero-m.jpg';hv.querySelector('source').src='hero-m.mp4';hv.load()}
  if(hv){hv.querySelector('source').addEventListener('error',function(){hv.remove()});
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){hv.removeAttribute('autoplay');hv.pause()}}
  document.querySelectorAll('.scr[data-video]').forEach(function(box){
   var n=box.dataset.video,v=document.createElement('video');
-  v.controls=true;v.preload='metadata';v.playsInline=true;v.poster=n+'.jpg';
+  v.controls=true;v.preload='metadata';v.playsInline=true;if(mob)n=n+'-m';v.poster=n+'.jpg';
   v.setAttribute('aria-label','Creative concept video');
   v.innerHTML='<source src="'+n+'.mp4" type="video/mp4">';
   v.querySelector('source').addEventListener('error',function(){v.remove()});
-  v.addEventListener('play',function(){track('concept_video_play',{video:n})});
+  v.addEventListener('play',function(){track('concept_video_play',{video:n.replace('-m','')})});
   box.appendChild(v);
  });
 })();
@@ -404,7 +412,7 @@ document.addEventListener('click',function(e){var a=e.target.closest('[data-evt]
   e.preventDefault();st.className='';st.textContent='';
   if(!valid()){var b=f.querySelector('[aria-invalid="true"]');if(b)b.focus();return}
   if(f.elements.website.value){return} // honeypot: bots only
-  if(f.action.indexOf('PASTE_APPS_SCRIPT_URL')>-1){st.className='bad';st.textContent='The form is not connected yet. Please use WhatsApp or email for now.';return}
+  if(!/^https:\/\/script\.google\.com\//.test(f.action)){st.className='bad';st.textContent='The form is not connected yet. Please use WhatsApp or email for now.';return}
   btn.disabled=true;btn.textContent='Sending...';
   fetch(f.action,{method:'POST',body:new FormData(f)})
    .then(function(r){return r.json()})
