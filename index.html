@@ -176,7 +176,7 @@ footer a{color:var(--mute);text-decoration:none}footer a:hover{color:var(--gold2
  .contact{gap:40px}
  .grid4{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding-bottom:14px;margin-right:-24px;padding-right:24px}
  .frame{flex:0 0 72%;scroll-snap-align:start}.scr{aspect-ratio:9/16}
- .wa{display:none}
+  .wa{display:none}
  .mcta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:60;gap:8px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(11,10,8,.94);border-top:1px solid var(--line)}
  .mcta .btn{flex:1;padding:13px 10px;font-size:.9rem}
 }
@@ -342,11 +342,12 @@ footer a{color:var(--mute);text-decoration:none}footer a:hover{color:var(--gold2
     <a class="mail" href="mailto:sandmotionvideolabs@gmail.com">sandmotionvideolabs@gmail.com</a>
    </div>
   </div>
-  <form id="lead" action="PASTE_APPS_SCRIPT_URL" method="POST" novalidate>
+  <form id="lead" action="https://script.google.com/macros/s/AKfycbyHyOMPN_9S3O_PuTJF0UpmjkmyXj3_HYdzdDP7L8fiJfaxr_9HZRWWFKJE_3Ao8MlD/exec" method="POST" novalidate>
    <div class="row">
     <label>Full name<input name="name" autocomplete="name" required><span class="err"></span></label>
     <label>Email<input name="email" type="email" autocomplete="email" required><span class="err"></span></label>
    </div>
+   <label>WhatsApp number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+91 98765 43210" required><span class="err"></span></label>
    <div class="row">
     <label>I am a…
      <select name="ctype">
@@ -388,14 +389,16 @@ footer a{color:var(--mute);text-decoration:none}footer a:hover{color:var(--gold2
   <div><h4>Contact</h4><ul>
    <li><a href="mailto:sandmotionvideolabs@gmail.com">sandmotionvideolabs@gmail.com</a></li>
    <li><a href="https://wa.me/918208072906" target="_blank" rel="noopener" data-evt="whatsapp_click">WhatsApp</a></li>
+   
    <li><a href="#" rel="noopener">YouTube</a> · <a href="#" rel="noopener">Instagram</a> · <a href="#" rel="noopener">LinkedIn</a></li>
    <li><a href="#privacy">Privacy policy</a></li></ul></div>
  </div>
  <div class="wrap"><p class="copy" id="privacy">&copy; <span id="yr">2026</span> Sandmotion Video Labs. All rights reserved. We use the details you submit only to reply to your enquiry and never sell them. Replace this line with your full privacy policy before launch.</p></div>
 </footer>
 
+
 <a class="wa" href="https://wa.me/918208072906?text=Hi%20Sandmotion%20Video%20Labs%2C%20I%27d%20like%20to%20discuss%20a%20video%20project." target="_blank" rel="noopener" data-evt="whatsapp_click" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>WhatsApp</a>
-<div class="mcta"><a class="btn" href="#contact" data-evt="mobile_free_quote">Get a Free Quote</a><a class="btn ghost" href="https://wa.me/918208072906" target="_blank" rel="noopener" data-evt="whatsapp_click">WhatsApp</a></div>
+<div class="mcta"><a class="btn" href="#contact" data-evt="mobile_free_quote">Get a Free Quote</a><a class="btn ghost" href="https://wa.me/918208072906?text=Hi%20Sandmotion%20Video%20Labs%2C%20I%27d%20like%20to%20discuss%20a%20video%20project." target="_blank" rel="noopener" data-evt="whatsapp_click">WhatsApp</a></div>
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
@@ -458,6 +461,7 @@ document.addEventListener('click',function(e){var a=e.target.closest('[data-evt]
   [['name','Please enter your name.'],['service','Please choose what you need.'],['message','Please tell us a little about your idea.']].forEach(function(k){
    var bad=!d[k[0]].value.trim();setErr(d[k[0]],bad?k[1]:'');if(bad)ok=false});
   var be=!re.test(d.email.value.trim());setErr(d.email,be?'Please enter a valid email address.':'');if(be)ok=false;
+  var dg=d.phone.value.replace(/\D/g,''),bp=dg.length<8||dg.length>15;setErr(d.phone,bp?'Please enter a valid WhatsApp number with country code.':'');if(bp)ok=false;
   var ce=document.getElementById('consent-err');ce.textContent=d.consent.checked?'':'Please tick the consent box to continue.';if(!d.consent.checked)ok=false;
   return ok}
  f.addEventListener('submit',function(e){
@@ -468,7 +472,7 @@ document.addEventListener('click',function(e){var a=e.target.closest('[data-evt]
   var d=f.elements,fd=new FormData();
   fd.append('name',d.name.value.trim());fd.append('email',d.email.value.trim());fd.append('company',d.company.value.trim());
   fd.append('service',d.service.value);fd.append('budget',d.budget.value);fd.append('consent','on');fd.append('website','');
-  fd.append('message','[Client type: '+d.ctype.value+'] '+d.message.value.trim());
+  fd.append('message','[Client type: '+d.ctype.value+' | WhatsApp: '+d.phone.value.trim()+'] '+d.message.value.trim());
   btn.disabled=true;btn.textContent='Sending...';
   fetch(f.action,{method:'POST',body:fd}).then(function(r){return r.json()})
    .then(function(r){if(!r||r.result!=='success')throw new Error('fail');
