@@ -43,7 +43,7 @@ details p{margin:10px 0 0}
 <button class="btn" type="button" id="go">Show my price band</button><div id="res" hidden aria-live="polite"></div>
 <form class="qform" id="qf" hidden novalidate><h3 style="font-size:1.1rem">Get my monthly editing quote (free)</h3>
 <div class="mrow"><label>Your name<input name="name" autocomplete="name" required></label><label>Email<input name="email" type="email" autocomplete="email" required></label></div>
-<label>WhatsApp number <small style="color:var(--mute)">(optional)</small><input name="phone" type="tel" autocomplete="tel"></label>
+<label>WhatsApp number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+91 98765 43210" required></label>
 <label>Link to your channel <small style="color:var(--mute)">(optional)</small><input name="note"></label>
 <div class="hp" aria-hidden="true"><label>Leave empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
 <label class="consent"><input type="checkbox" name="consent" required><span>I agree that Sandmotion Video Labs may contact me about this enquiry and store my details to do so.</span></label>
@@ -78,12 +78,12 @@ details p{margin:10px 0 0}
 <ul class="src"><li>India video editor cost and rate guides, 2026 (srthk.vercel.app, fueler.io, edit-with-zakir.blogspot.com)</li><li>Video editing rates for freelancers in India, rate calculator (freelanceratesindia.pages.dev)</li><li>Ad Snipper, video editing cost and YouTube editor hiring guides, 2026 (adsnipper.com)</li><li>Public freelancer job listings on freelancer.com (for beginner-level offers)</li></ul>
 <p class="src">Figures come from third-party guides and job posts, are rounded, and differ between sources (checked November 2026). Some sources sell editing services themselves. They are not Sandmotion Video Labs prices. Your quote depends on your channel and the work you need.</p>
 </div>
-<aside class="cta"><h2>Get your free monthly editing quote</h2><p>Share your channel link. We reply within 1 working day with clear next steps.</p><div class="row"><a class="btn" href="../index.html#contact" data-evt="blog_start_project">Get a Free Quote</a><a class="btn ghost" href="https://wa.me/918208072906?text=Hi%20Sandmotion%20Video%20Labs%2C%20I%20read%20your%20YouTube%20editing%20cost%20guide%20and%20would%20like%20a%20monthly%20quote." target="_blank" rel="noopener" data-evt="whatsapp_click">Chat on WhatsApp</a></div></aside>
-<div class="related"><h3>Keep reading</h3><ul><li><a href="video-production-cost-2026.html">How Much Does Video Production Cost in 2026? Real Prices for India, USA, UK and More</a></li></ul></div>
+<aside class="cta"><h2>Get your free monthly editing quote</h2><p>Share your channel link. We reply within 1 working day with clear next steps.</p><div class="row"><a class="btn" href="../index.html#contact" data-evt="blog_start_project">Get a Free Quote</a><a class="btn ghost" href="https://wa.me/918208072906?text=Hi%20Sandmotion%20Video%20Labs%2C%20I%27d%20like%20to%20discuss%20a%20video%20project." target="_blank" rel="noopener" data-evt="whatsapp_click">Chat on WhatsApp</a></div></aside>
+<div class="related"><h3>Keep reading</h3><ul><li><a href="reels-shorts-cost-india.html">How Much Should You Pay for Reels and Shorts? India 2026</a></li><li><a href="video-production-cost-2026.html">How Much Does Video Production Cost in 2026? Real Prices for India, USA, UK and More</a></li></ul></div>
 </div></article></main>
 <footer><div class="wrap"><div class="fgrid"><div><a class="logo" href="../index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#14120e" stroke="#d9a441" stroke-width="2"/><path d="M12 40q10-20 20 0t20 0" stroke="#d9a441" stroke-width="5" fill="none" stroke-linecap="round"/></svg><b>Sandmotion <span>Video Labs</span></b></a><p style="margin-top:14px;font-size:.9rem">A creative video production partner for creators, personal brands and businesses worldwide.</p></div>
 <div><h4>Explore</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../index.html#services">Services</a></li><li><a href="./">Blog</a></li></ul></div>
-<div><h4>Contact</h4><ul><li><a href="mailto:sandmotionvideolabs@gmail.com">sandmotionvideolabs@gmail.com</a></li><li><a href="https://wa.me/918208072906?text=Hi%20Sandmotion%20Video%20Labs%2C%20I%27d%20like%20to%20discuss%20a%20video%20project." target="_blank" rel="noopener" data-evt="whatsapp_click">WhatsApp</a></li></ul></div></div>
+<div><h4>Contact</h4><ul><li><a href="mailto:sandmotionvideolabs@gmail.com">sandmotionvideolabs@gmail.com</a></li><li><a href="https://wa.me/918208072906" target="_blank" rel="noopener" data-evt="whatsapp_click">WhatsApp</a></li></ul></div></div>
 <p class="copy">&copy; 2026 Sandmotion Video Labs. All rights reserved.</p></div></footer>
 <div class="mcta"><a class="btn" href="../index.html#contact" data-evt="mobile_start_project">Start Your Project</a><a class="btn ghost" href="https://wa.me/918208072906?text=Hi%20Sandmotion%20Video%20Labs%2C%20I%27d%20like%20to%20discuss%20a%20video%20project." target="_blank" rel="noopener" data-evt="whatsapp_click">WhatsApp</a></div>
 <script src="blog.js"></script>
@@ -108,10 +108,11 @@ details p{margin:10px 0 0}
  qf.addEventListener('submit',function(e){
   e.preventDefault();qs.className='mstatus';qs.textContent='';var d=qf.elements;
   if(!d.name.value.trim()||!re.test(d.email.value.trim())){qs.className='mstatus bad';qs.textContent='Please enter your name and a valid email address.';return}
+  var dg=d.phone.value.replace(/\D/g,'');if(dg.length<8||dg.length>15){qs.className='mstatus bad';qs.textContent='Please enter a valid WhatsApp number with country code.';return}
   if(!d.consent.checked){qs.className='mstatus bad';qs.textContent='Please tick the consent box to continue.';return}
   if(d.website.value)return;
   if(!/^https:\/\/script\.google\.com\//.test(ENDPOINT)){qs.className='mstatus bad';qs.textContent='This form is not connected yet. Please use WhatsApp or email for now.';return}
-  var fd=new FormData(),msg='[YouTube planner] Channel: '+sel.stage+' | Workload: '+sel.work+' | Band: '+sel.band.t+' | Extras: '+(sel.ex.length?sel.ex.join(', '):'none')+(d.phone.value.trim()?' | WhatsApp: '+d.phone.value.trim():'')+(d.note.value.trim()?' | Channel link: '+d.note.value.trim():'');
+  var fd=new FormData(),msg='[YouTube planner] Channel: '+sel.stage+' | Workload: '+sel.work+' | Band: '+sel.band.t+' | Extras: '+(sel.ex.length?sel.ex.join(', '):'none')+' | WhatsApp: '+d.phone.value.trim()+(d.note.value.trim()?' | Channel link: '+d.note.value.trim():'');
   fd.append('name',d.name.value.trim());fd.append('email',d.email.value.trim());fd.append('company','');fd.append('service','YouTube video editing');fd.append('budget',sel.band.b);fd.append('message',msg);fd.append('consent','on');fd.append('website','');
   var b=qf.querySelector('button[type=submit]');b.disabled=true;b.textContent='Sending...';
   fetch(ENDPOINT,{method:'POST',body:fd}).then(function(r){return r.json()}).then(function(r){

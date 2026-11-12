@@ -1,5 +1,5 @@
 // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL BETWEEN THE QUOTES BELOW (only here, once)
-var ENDPOINT='PASTE_APPS_SCRIPT_URL';
+var ENDPOINT='https://script.google.com/macros/s/AKfycbyHyOMPN_9S3O_PuTJF0UpmjkmyXj3_HYdzdDP7L8fiJfaxr_9HZRWWFKJE_3Ao8MlD/exec';
 
 function track(n,p){if(window.gtag)gtag('event',n,p||{})}
 document.addEventListener('click',function(e){var a=e.target.closest('[data-evt]');if(a)track(a.dataset.evt)});
